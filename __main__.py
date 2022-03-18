@@ -1,6 +1,6 @@
 from sunday_search import Sunday
 from brute_search import Violent
-from kmp_search import KnuthMorrisPratt as KPM
+from kmp_search import KnuthMorrisPratt as KMP
 from jitter_search import JitterSearch
 
 tests = [
@@ -49,8 +49,8 @@ def test():
     for case in tests:
         search_assert(**case, d=alg.search)
 
-    print("KPM search test:")
-    alg = KPM()
+    print("KMP search test:")
+    alg = KMP()
     for case in tests:
         search_assert(**case, d=alg.search)
 
