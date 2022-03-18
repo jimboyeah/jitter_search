@@ -487,7 +487,7 @@ if __name__ == '__main__':
 
 Test Output:
 
->
+```sh
 Sunday search test:
 ✅pass: [  5] ==> [llam] is in [shellllama]
 ✅pass: [  1] ==> [loon] is in [aloong]
@@ -577,3 +577,4 @@ Jitter search test:
 ✅pass: [  5] ==> [Fuzz] is in [模糊测试（Fuzz Testing）是一种自动化的软件测试技术]
 ✅pass: [ 11] ==> [？] is in [软件测试中如何测试算法？]
 DONE!
+```
