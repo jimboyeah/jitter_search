@@ -144,7 +144,7 @@ KMP 算法的不同之处在于，它会花费空间来记录一些信息，这�
 
 检索第 6 个字符时，出现不匹配，这时 PMT 的数据就起作用了。如果是 Violent Search 算法，肯定是推倒重来，从 S 的第 2 个字符开始检索。但是 KMP 算法因为提前准备好了 PMT 数据，第一次出现不匹配时，知道可以从 PMT 表查询到前面可以匹配的前缀长度，即上一个位置有一个目标前缀长度为 1 的匹配子串。
 
-从而可以直接修改 PMT 状态，或者叫做回退 PMT 数据指针位置，从而避免了在 S 字符串中进行回退操作。通常，输入数据中 S 会比 P 大得多，之也就是 KMP 的算法优点所在：高频前缀字符串的优化搜索算法。
+从而可以直接修改 PMT 状态，或者叫做回退 PMT 数据指针位置，从而避免了在 S 字符串中进行回退操作。通常，输入数据中 S 会比 P 大得多，这也就是 KMP 的算法优点所在：高频前缀字符串的优化搜索算法。
 
 ```py
 class KnuthMorrisPratt:
@@ -266,7 +266,7 @@ if ismain:
     v.search(p="loon",    s="loo")
 ```
 
-输出结构：
+输出结果：
 
       P: llam
       S: shellllama
@@ -484,3 +484,96 @@ def test():
 if __name__ == '__main__':
     test()
 ```
+
+Test Output:
+
+>
+Sunday search test:
+✅pass: [  5] ==> [llam] is in [shellllama]
+✅pass: [  1] ==> [loon] is in [aloong]
+✅pass: [ -1] ==> [loog] is not in [loon]
+✅pass: [  0] ==> [loon] is in [loon]
+✅pass: [ -1] ==> [loon] is not in [loo]
+✅pass: [  8] ==> [ma] is in [shellllama]
+✅pass: [ -1] ==> [bib] is not in [bilibili]
+✅pass: [  1] ==> [ili] is in [bilibili]
+✅pass: [ -1] ==> [bibi] is not in [ilibili]
+✅pass: [  8] ==> [AAAABAAA] is in [AAAABAABAAAABAAABAAAA]
+✅pass: [  0] ==> [AAAA] is in [AAAABAABAAAABAAABAAAA]
+✅pass: [ 35] ==> [Type] is in [git clone git@github.com:Microsoft/TypeScript-Sublime-Plugin]
+✅pass: [ -1] ==> [Complexy] is not in [Denial of Service via Algorithmic Complexity Attack]
+✅pass: [ 31] ==> [Hash] is in [New Second-Preimage Attacks on Hash Functions]
+✅pass: [ 31] ==> [4th] is in [Robert Sedgewick - Algorithms, 4th Edition]
+✅pass: [ 18] ==> [Closed] is in [Open Hash Tables (Closed Addressing)]
+✅pass: [ 20] ==> [Open] is in [Closed Hash Tables (Open Addressing)]
+✅pass: [ 20] ==> [using] is in [Closed Hash Tables, using buckets]
+✅pass: [ 27] ==> [3rd] is in [Introduction to Algorithms 3rd Edition]
+✅pass: [  5] ==> [Fuzz] is in [模糊测试（Fuzz Testing）是一种自动化的软件测试技术]
+✅pass: [ 11] ==> [？] is in [软件测试中如何测试算法？]
+Violent search test:
+✅pass: [  5] ==> [llam] is in [shellllama]
+✅pass: [  1] ==> [loon] is in [aloong]
+✅pass: [ -1] ==> [loog] is not in [loon]
+✅pass: [  0] ==> [loon] is in [loon]
+✅pass: [ -1] ==> [loon] is not in [loo]
+✅pass: [  8] ==> [ma] is in [shellllama]
+✅pass: [ -1] ==> [bib] is not in [bilibili]
+✅pass: [  1] ==> [ili] is in [bilibili]
+✅pass: [ -1] ==> [bibi] is not in [ilibili]
+✅pass: [  8] ==> [AAAABAAA] is in [AAAABAABAAAABAAABAAAA]
+✅pass: [  0] ==> [AAAA] is in [AAAABAABAAAABAAABAAAA]
+✅pass: [ 35] ==> [Type] is in [git clone git@github.com:Microsoft/TypeScript-Sublime-Plugin]
+✅pass: [ -1] ==> [Complexy] is not in [Denial of Service via Algorithmic Complexity Attack]
+✅pass: [ 31] ==> [Hash] is in [New Second-Preimage Attacks on Hash Functions]
+✅pass: [ 31] ==> [4th] is in [Robert Sedgewick - Algorithms, 4th Edition]
+✅pass: [ 18] ==> [Closed] is in [Open Hash Tables (Closed Addressing)]
+✅pass: [ 20] ==> [Open] is in [Closed Hash Tables (Open Addressing)]
+✅pass: [ 20] ==> [using] is in [Closed Hash Tables, using buckets]
+✅pass: [ 27] ==> [3rd] is in [Introduction to Algorithms 3rd Edition]
+✅pass: [  5] ==> [Fuzz] is in [模糊测试（Fuzz Testing）是一种自动化的软件测试技术]
+✅pass: [ 11] ==> [？] is in [软件测试中如何测试算法？]
+KMP search test:
+✅pass: [  5] ==> [llam] is in [shellllama]
+✅pass: [  1] ==> [loon] is in [aloong]
+✅pass: [ -1] ==> [loog] is not in [loon]
+✅pass: [  0] ==> [loon] is in [loon]
+✅pass: [ -1] ==> [loon] is not in [loo]
+✅pass: [  8] ==> [ma] is in [shellllama]
+✅pass: [ -1] ==> [bib] is not in [bilibili]
+✅pass: [  1] ==> [ili] is in [bilibili]
+✅pass: [ -1] ==> [bibi] is not in [ilibili]
+✅pass: [  8] ==> [AAAABAAA] is in [AAAABAABAAAABAAABAAAA]
+✅pass: [  0] ==> [AAAA] is in [AAAABAABAAAABAAABAAAA]
+✅pass: [ 35] ==> [Type] is in [git clone git@github.com:Microsoft/TypeScript-Sublime-Plugin]
+✅pass: [ -1] ==> [Complexy] is not in [Denial of Service via Algorithmic Complexity Attack]
+✅pass: [ 31] ==> [Hash] is in [New Second-Preimage Attacks on Hash Functions]
+✅pass: [ 31] ==> [4th] is in [Robert Sedgewick - Algorithms, 4th Edition]
+✅pass: [ 18] ==> [Closed] is in [Open Hash Tables (Closed Addressing)]
+✅pass: [ 20] ==> [Open] is in [Closed Hash Tables (Open Addressing)]
+✅pass: [ 20] ==> [using] is in [Closed Hash Tables, using buckets]
+✅pass: [ 27] ==> [3rd] is in [Introduction to Algorithms 3rd Edition]
+✅pass: [  5] ==> [Fuzz] is in [模糊测试（Fuzz Testing）是一种自动化的软件测试技术]
+✅pass: [ 11] ==> [？] is in [软件测试中如何测试算法？]
+Jitter search test:
+✅pass: [  5] ==> [llam] is in [shellllama]
+✅pass: [  1] ==> [loon] is in [aloong]
+✅pass: [ -1] ==> [loog] is not in [loon]
+✅pass: [  0] ==> [loon] is in [loon]
+✅pass: [ -1] ==> [loon] is not in [loo]
+✅pass: [  8] ==> [ma] is in [shellllama]
+✅pass: [ -1] ==> [bib] is not in [bilibili]
+✅pass: [  1] ==> [ili] is in [bilibili]
+✅pass: [ -1] ==> [bibi] is not in [ilibili]
+✅pass: [  8] ==> [AAAABAAA] is in [AAAABAABAAAABAAABAAAA]
+✅pass: [  0] ==> [AAAA] is in [AAAABAABAAAABAAABAAAA]
+✅pass: [ 35] ==> [Type] is in [git clone git@github.com:Microsoft/TypeScript-Sublime-Plugin]
+✅pass: [ -1] ==> [Complexy] is not in [Denial of Service via Algorithmic Complexity Attack]
+✅pass: [ 31] ==> [Hash] is in [New Second-Preimage Attacks on Hash Functions]
+✅pass: [ 31] ==> [4th] is in [Robert Sedgewick - Algorithms, 4th Edition]
+✅pass: [ 18] ==> [Closed] is in [Open Hash Tables (Closed Addressing)]
+✅pass: [ 20] ==> [Open] is in [Closed Hash Tables (Open Addressing)]
+✅pass: [ 20] ==> [using] is in [Closed Hash Tables, using buckets]
+✅pass: [ 27] ==> [3rd] is in [Introduction to Algorithms 3rd Edition]
+✅pass: [  5] ==> [Fuzz] is in [模糊测试（Fuzz Testing）是一种自动化的软件测试技术]
+✅pass: [ 11] ==> [？] is in [软件测试中如何测试算法？]
+DONE!
